@@ -1,38 +1,394 @@
+@import url('https://fonts.googleapis.com/css2?family=Alata&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+p {margin:0px; padding:0px;}
+
+#root, html, body {
+  width: 100%;
+  height: 100%;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
 .App {
-  text-align: center;
+  width: 100%;
+  height: 100%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.AppWrapper {
+  width: 100%;
+  height: 100%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
+/* LAYOUT */
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.LayoutTop {
+  background-color: #ededed;
+  height: calc(20% - 75px);
+  margin-bottom: 75px;
+  width: 100%;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.LayoutMid {
+  background-color: white;
+    height: calc(100% - 40%);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.LayoutBot {
+  background-color: #ededed;
+  height: calc(20% - 75px);
+  margin-top: 75px;
+  width: 100%;
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+/* MODULE */
+
+.BookWrapper-main {
+  width: 400px;
+  overflow-y: scroll;
+  scrollbar-width: 0px;
+  background-color: transparent;
+  padding: 3px;
+}
+
+.BookWrapper-left {
+  margin-right: 25px;
+  /*animation: opacity 3s; */
+}
+
+.BookWrapper {
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  
+}
+
+
+.BookWrapper-main::-webkit-scrollbar {
+  display: none;
+}
+
+.Book {
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  background-color: #F0F0F0;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 2px 3px rgba(0,0,0,0.14);
+  /*animation: opacity 4s; */
+}
+
+/* LIST */
+
+li {
+  text-decoration: none;
+  height: 50px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0px;
+  background-color: white;
+  transition: 0.2s;
+  border-left: 0px solid transparent;
+  padding-left: 15px;
+  /*animation-name: fadeIn;
+  animation-duration: 1s; */
+}
+
+
+li:hover {
+  background-color: #ebebeb;
+
+}
+
+span {
+  text-overflow: ellipsis;
+  padding-right: 5px;
+  /* Needed to make it work */
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+span:focus {
+  outline: none;
+  
+}
+
+.high-priority {
+  border-left: 3px solid #B43D3D;
+  font-weight: bold;
+}
+
+.high-priority:hover {
+  border-left: 20px solid #B43D3D;
+  font-weight: bold;
+}
+
+.normal-priority:hover {
+  border-left: 20px solid black ;
+}
+
+
+.normal-priority {
+  border-left: 3px solid black;
+}
+
+
+
+.completedz:hover {
+  border-left: 20px solid grey ;
+  color: grey;
+}
+
+
+.completedz {
+  border-left: 3px solid grey ;
+  color: #ededed;
+  animation: blinkingText 0.8s, fadeIn 1s, leftBorder 1s;
+
+}
+
+ul {
+  padding: 0px;
+  margin: 0px;
+}
+
+/* SUBMIT */
+
+form {
+  height: 50px;
+  width: 100%;
+}
+
+
+
+.userInput {
+  width: 100%;
+  height: 50px;
+  padding: 15px;
+  font-weight: bold;
+  font-size: 16px;
+  color: #545454;
+  outline: none;
+  border-width: 0px;
+  border-bottom: 2px solid white;
+  background-color: #FCFCFC;
+  border-left: 3px solid red;
+}
+
+.userInput:focus {
+  outline: none;
+}
+
+.userInput::placeholder {
+  color: grey;
+}
+
+button {
+  color: #ceced6;
+  margin-left: auto; /* https://stackoverflow.com/questions/33924655/position-last-flex-item-at-the-end-of-container delete button moves left side when content is erased -- Prior to alignment via justify-content and align-self, any positive free space is distributed to auto margins in that dimension.*/
+  font-weight: bold;
+  height: 50px;
+  border: 0px;
+  background-color: transparent;
+  transition: 0.2s ease;
+  user-select: none;
+}
+
+button:focus {
+  outline: none;
+  border: none;
+  outline:0px;
+}
+
+button:hover {
+  color: #D90429;
+}
+
+
+@keyframes fadeIn {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+} 
+
+@keyframes blinkingText{
+  0%{     color: #ededed;    }
+  49%{    color:black; }
+  100%{   color: #ededed;    }
+}
+
+@keyframes leftBorder{
+  0% {border-left: 3px solid grey ;}
+  49% {border-left: 20px solid grey ;}
+  0% {border-left: 3px solid grey ;}
+}
+
+@keyframes opacity {
+  0% {
+    opacity: 0;}
+
+  100% {
+  opacity: 1;}
+}
+
+/* 
+
+
+.todoWrapper {
+  width: 400px;
+  height: 100%;
+  background-color: #F0F0F0;
+  transition: all 0.5s cubic-bezier(.25,.8,.25,1);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 2px 3px rgba(0,0,0,0.14);
+    border-radius: 5px;
+}
+
+.UserInput {
+  width: 400px;
+  height: 47px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  border-bottom: 2px solid white;
+}
+
+
+.noteInput {
+  width: 400px;
+  height: 45px;
+  padding: 10px;
+  font-weight: bold;
+  font-size: 16px;
+  color: #545454;
+  border: 0px solid white;
+}
+
+.noteInput:focus {
+  outline: none;
+}
+
+.noteInput::placeholder {
+  color: grey;
+}
+
+ul {
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+
+}
+
+
+li {
+  height: 50px;
+  width: 100%;
+  font-weight: bold;
+  background-color: white;
+  transition: 0.1s;
+  padding-left: 10px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+  color: #2B2D42;
+font-size: 16px;
+border-left: 20px solid #B43D3D;
+  animation-name: fadeIn;
+  animation-duration: 0.5s;
+  white-space:'pre-wrap';
+}
+
+
+li:hover {
+  background-color: #ebebeb;
+}
+
+span {
+  display: block;
+}
+
+.finished {
+  text-decoration: line-through;
+  text-decoration-color: white;
+  color: grey;
+  background-color: #e1e3ed;
+}
+
+
+
+
+button {
+  color: #ceced6;
+  font-weight: bold;
+  height: 30px;
+  border: 0px;
+  background-color: transparent;
+  transition: 0.2s ease;
+}
+
+button:focus {
+  outline: none;
+  border: none;
+  outline:0px;
+}
+
+button:hover {
+  color: #D90429;
+}
+
+@keyframes fadeIn {
+   0% {opacity: 0;}
+   100% {opacity: 1;}
+}  */
+
+
+
+
+/* Contxt Menu */
+
+.contextMenu {
+  position: fixed;
+  background: white;
+  box-shadow: 0px 2px 10px #999999;
+}
+.contextMenu--option {
+  padding: 6px 50px 5px 10px;
+  min-width: 160px;
+  cursor: default;
+  font-size: 12px;
+}
+.contextMenu--option:hover {
+  background: linear-gradient(to top, #555, #333);
+  color: white;
+}
+.contextMenu--option:active {
+  color: #e9e9e9;
+  background: linear-gradient(to top, #555, #444);
+}
+.contextMenu--option__disabled {
+  color: #999999;
+  pointer-events: none;
+}
+.contextMenu--separator {
+  width: 100%;
+  height: 1px;
+  background: #CCCCCC;
+  margin: 0 0 0 0;
 }
