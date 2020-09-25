@@ -1,6 +1,5 @@
 import React, {Fragment, useState, useEffect} from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import ContextMenu from './ContextMenu.js'
 
 
 class Todo extends React.Component {
@@ -178,7 +177,9 @@ function ListRender(props) {
 
     let {toplist, midlist, completed, items} = props.allstates
 
-    
+    //assume you got only the states, now you can maniplate the list order features here.
+
+    // call function to change the priority of the higher state.
 
     return (
             <ul>
