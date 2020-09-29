@@ -95,6 +95,15 @@ p {margin:0px; padding:0px;}
 
 /* LIST */
 
+.indent {
+  border-left: 0px solid transparent;
+  transition: 0.2s;
+}
+
+.indent:hover {
+  border-left: 10px solid black;
+}
+
 li {
   text-decoration: none;
   height: 50px;
@@ -104,7 +113,7 @@ li {
   align-items: center;
   margin: 0px;
   background-color: white;
-  transition: 0.2s;
+  /* transition: 0.05s; */
   border-left: 0px solid transparent;
   padding-left: 15px;
   /*animation-name: fadeIn;
@@ -130,43 +139,74 @@ span:focus {
   
 }
 
-.high-priority {
+.toplist {
+  background-color: #a60707;
+  color: white;
   border-left: 3px solid #B43D3D;
   font-weight: bold;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  transition:0.2s;
 }
 
-.high-priority:hover {
+.toplist > button {
+  color: white;
+}
+
+/* .toplist:hover {
   border-left: 20px solid #B43D3D;
   font-weight: bold;
 }
 
-.normal-priority:hover {
+.midlist:hover {
   border-left: 20px solid black ;
 }
 
+.completed:hover {
+  border-left: 20px solid grey ;
+  color: grey;
+} */
 
-.normal-priority {
+
+.midlist{
   border-left: 3px solid black;
 }
 
 
 
-.completedz:hover {
-  border-left: 20px solid grey ;
-  color: grey;
-}
 
 
-.completedz {
+
+.completed {
   border-left: 3px solid grey ;
   color: #ededed;
   animation: blinkingText 0.8s, fadeIn 1s, leftBorder 1s;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  transition: 0.5s;
+}
 
+.completed:hover {
+  background-color: white !important;
+}
+
+.completed > span:active {
+  transition: 0.5s;
+  color: black;
 }
 
 ul {
   padding: 0px;
   margin: 0px;
+ 
 }
 
 /* SUBMIT */

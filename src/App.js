@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { useTransition, useSpring, animated } from 'react-spring';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
 import Todo from './components/Todo2.js';
 
@@ -87,7 +88,16 @@ function LayoutApp() {
 }
 
 
-
+function LandingPage() {
+  return (
+    <>
+    <div> Hello World </div>
+    <Link to="/app">
+      <li> Go to App</li>
+      </Link>
+    </>
+  )
+}
 
 function App() {
  
@@ -97,9 +107,14 @@ function App() {
   
   
   return (
-    <div style={props} className="App">
-      <LayoutApp />
-    </div>
+    <Router>
+      <div style={props} className="App">
+        <Switch>
+          <Route path="/app" component={LayoutApp} />
+          <Route path="/" component={LandingPage} />
+        </Switch>
+      </div>
+      </Router>
   );
 }
 
